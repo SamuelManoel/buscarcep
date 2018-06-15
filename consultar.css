@@ -11,7 +11,7 @@ textarea:focus {
     flex-direction: column;
     margin: 0 auto;
     width: 100%;
-    height: 200vh;
+    min-height: 200vh;
     background-size: cover;
 }
 .header {
@@ -185,7 +185,7 @@ textarea#rua,#bairro,#cidade {
 @media only screen and (max-width: 1215px) {
     .c-1,.c-2,.c-3 {
         flex-direction:column;
-        height: 250px;
+        min-height: 130px;
     }
     .c-1 > div:nth-child(1) {
         width: 100%;
