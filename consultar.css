@@ -29,7 +29,7 @@ h1 {
     display: flex;
     justify-content: center;
     margin-top: 10vh;
-    min-height:188px;
+    min-height:182px;
 }
 #olho-aberto{
     display: none;
