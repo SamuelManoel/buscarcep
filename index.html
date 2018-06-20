@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Adicionando JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="consultar.js"></script>
-    <script src="consultar.js"></script>
+
     <link rel="stylesheet" href="consultar.css">
     <title>Busca via CEP</title>
 </head>
+
 <body>
-          <section class="container">
-                <header class="header">
-                    <h1>Oi eu sou o Buuh!</h1>
-                </header>
-                <div class="olho">
-                    <img src="olho-fechado.png" alt="" id="olho-fechado">
-                    <img src="olho-aberto.png" alt=""  id="olho-aberto">
-                </div>
-                <div class="busca">
-                    <input type="text" id="buscar" placeholder="DIGITE O CEP" maxlength="8">
-                    <button id="btn-buscar"></button>
-                </div>
-                <section class="c-1">
-                    <div>Rua / Logadouro</div>
-                    <div><textarea name="teste" id="rua" cols="30" rows="10" disabled>Faça uma pesquisa...</textarea></div>
-                </section>
-                <section class="c-2">
-                    <div>Bairro</div>
-                    <div><textarea name="teste" id="bairro" cols="30" rows="10" disabled>Faça uma pesquisa...</textarea></div>
-                </section>
-                <section class="c-3">
-                    <div>Cidade</div>
-                    <div><textarea name="teste" id="cidade" cols="30" rows="10" disabled>Faça uma pesquisa...</textarea></div>
-                </section>
-            </section>
-    
+    <section class="container">
+        <header class="header">
+            <h1>Oi eu sou o Buuh!</h1>
+        </header>
+        <div class="olho">
+            <img src="olho-fechado.png" alt="" id="olho-fechado">
+            <img src="olho-aberto.png" alt="" id="olho-aberto">
+        </div>
+        <div class="busca">
+            <input type="tel" id="buscar" placeholder="DIGITE O CEP" maxlength="8">
+            <button id="btn-buscar"></button>
+        </div>
+        <!-- Adicionadas classes para as sections -->
+        <section class="info">
+            <div class="info--field">Rua / Logadouro</div>
+            <div class="info--value">
+                <textarea name="teste" id="rua" cols="30" rows="10" disabled>Faça uma pesquisa...</textarea>
+            </div>
+        </section>
+        <section class="info">
+            <div class="info--field">Bairro</div>
+            <div class="info--value">
+                <textarea name="teste" id="bairro" cols="30" rows="10" disabled>Faça uma pesquisa...</textarea>
+            </div>
+        </section>
+        <section class="info">
+            <div class="info--field">Cidade</div>
+            <div class="info--value">
+                <textarea name="teste" id="cidade" cols="30" rows="10" disabled>Faça uma pesquisa...</textarea>
+            </div>
+        </section>
+    </section>
+
+    <!-- Adicionando JQuery -->
+    <!-- Scripts de JS por convenção e boas praticas devem ser declarados no final do body -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="consultar.js"></script>
 </body>
+
 </html>

@@ -1,10 +1,16 @@
-*{
-	margin: 0;
-	padding: 0;
+* {
+    margin: 0;
+    padding: 0;
 }
+
+textarea {
+    resize: none;
+}
+
 textarea:focus {
     outline: none;
 }
+
 .container {
     display: flex;
     background-repeat: no-repeat;
@@ -14,6 +20,7 @@ textarea:focus {
     min-height: 200vh;
     background-size: cover;
 }
+
 .header {
     display: flex;
     justify-content: center;
@@ -22,51 +29,51 @@ textarea:focus {
     height: 30px;
     max-width: 100%;
 }
+
 h1 {
     font-size: 1.5em;
 }
-.olho{
+
+.olho {
     display: flex;
     justify-content: center;
     margin-top: 10vh;
-    min-height:182px;
+    min-height: 182px;
 }
-#olho-aberto{
+
+/*
+    Não é necessário o vendor prefix de -webkit-, animation já tem suporte em todas as plataformas.
+    Vide https://caniuse.com/#feat=css-animation
+*/
+#olho-aberto {
     display: none;
-    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
     animation-name: olho;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
-}
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes olho {
-    0%   {transform: translate3d(0, 0px, 0);}
-    25%  {transform: translate3d(0, 20px, 0);}
-    50%  {transform: translate3d(0, 0px, 0);}
-    75%  {transform: translate3d(0, 20px, 0);}
-    100% {transform: translate3d(0, 0px, 0);}
+    animation-timing-function: ease-in-out;
 }
 
 /* Standard syntax */
 @keyframes olho {
-
-	0%   {transform: translate3d(0, 0px, 0);}
-    25%  {transform: translate3d(0, 20px, 0);}
-    50%  {transform: translate3d(0, 0px, 0);}
-    75%  {transform: translate3d(0, 20px, 0);}
-    100% {transform: translate3d(0, 0px, 0);}
-
-
+    0% {
+        transform: translate3d(0, 0px, 0);
+    }
+    50% {
+        transform: translate3d(0, 20px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0px, 0);
+    }
 }
-.busca{
+
+.busca {
     display: flex;
     justify-content: center;
     margin-top: 10vh;
     left: -40px;
     position: relative;
 }
+
 #btn-buscar {
     background-color: #ff353e;
     background-image: url(b-fechada.png);
@@ -80,9 +87,11 @@ h1 {
     background-size: 80%;
     background-position: 8px 10px;
 }
+
 #btn-buscar:hover {
     background-image: url(b-aberta.png);
 }
+
 #buscar {
     min-width: 270px;
     width: 30vw;
@@ -95,14 +104,26 @@ h1 {
     font-size: 1.5em;
     min-height: 50px;
 }
+
 #buscar:focus {
     box-shadow: 0px 0px 10px #ff353e;
     outline: none;
 }
+
 #btn-buscar:focus {
     outline: none;
 }
-.c-1,.c-2,.c-3{
+
+/*
+    Você tem os elementos dos campos de endereço, todos eles são os mesmos campos e ainda assim você
+    estava usando seletores de child e uma classe para cada section.
+    Não é necessário isso, para isso tem os seletores de classe, para dizer que um mesmo css pode servir para
+    vários elementos no HTML.
+    Foi removido todos os child e deixado um CSS unico para cada section e suas divs filhas correspondentes.
+    PS: Foi utilizada a metodologia BEM de CSS.
+*/
+
+.info {
     min-width: 310px;
     width: 40vw;
     border-radius: 5px;
@@ -114,7 +135,8 @@ h1 {
     height: 90px;
     margin-top: 30px;
 }
-.c-1 > div:nth-child(1) {
+
+.info .info--field {
     width: 50%;
     background: #fa374b;
     height: 100%;
@@ -125,29 +147,8 @@ h1 {
     color: #fff;
     justify-content: center;
 }
-.c-2 > div:nth-child(1) {
-    width: 50%;
-    background: #fa374b;
-    height: 100%;
-    display: flex;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    align-items: center;
-    color: #fff;
-    justify-content: center;
-}
-.c-3 > div:nth-child(1) {
-    width: 50%;
-    background: #fa374b;
-    height: 100%;
-    display: flex;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    align-items: center;
-    color: #fff;
-    justify-content: center;
-}
-.c-1 > div:nth-child(2) {
+
+.info .info--value {
     width: 50%;
     height: 100%;
     display: flex;
@@ -155,23 +156,8 @@ h1 {
     color: #000;
     justify-content: center;
 }
-.c-2 > div:nth-child(2) {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    color: #000;
-    justify-content: center;
-}
-.c-3 > div:nth-child(2) {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    color: #000;
-    justify-content: center;
-}
-textarea#rua,#bairro,#cidade {
+
+.info .info--value textarea {
     resize: none;
     background: transparent;
     text-align: center;
@@ -182,32 +168,22 @@ textarea#rua,#bairro,#cidade {
     font-size: 1em;
     color: #000;
 }
+
 @media only screen and (max-width: 1215px) {
-    .c-1,.c-2,.c-3 {
-        flex-direction:column;
+    .info {
+        flex-direction: column;
         min-height: 130px;
     }
-    .c-1 > div:nth-child(1) {
+    .info .info--field {
         width: 100%;
     }
-    .c-1 > div:nth-child(2) {
-        width: 100%;
-    }
-    .c-2 > div:nth-child(1) {
-        width: 100%;
-    }
-    .c-2 > div:nth-child(2) {
-        width: 100%;
-    }
-    .c-3 > div:nth-child(1) {
-        width: 100%;
-    }
-    .c-3 > div:nth-child(2) {
+    .info .info--value {
         width: 100%;
     }
 }
+
 @media only screen and (max-width: 340px) {
-    .busca{
+    .busca {
         margin-top: 20vh;
     }
 }
